@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ViewProductCategory</title>
+    <style>
+        .h1{
+            font-family: "Perpetua Titling MT";
+        }
+        .t1{
+            margin-right: auto;
+            margin-left: auto;
+            text-align: center;
+        }
+        table,th,td{
+            border: 1px black;
+            border-collapse: collapse;
+            border-style: groove;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center"><br><br>
+        <h1 class="h1">Aryan Online Boutique</h1><br>
+        <h4>:: Your are watching Product-Subcategory :: </h4>
+        <table class="t1">
+            <tr>
+                <th>Product Name</th>
+                <th>Product Description</th>
+                <th>Product Price</th>
+                <th>Product Quantity</th>
+                <th>Product Image Name</th>
+                <th>Product Image</th>
+                <th>Product Category Name</th>
+                <th>Product Sub-Category Name</th>
+                 <th>Action</th>
+            </tr>
+            {% for data in product_vo_list %}
+            <tr>
+                <td>{{ data[2]['product_name'] }}</td>
+                <td>{{ data[2]['product_description'] }}</td>
+                <td>{{ data[2]['product_price'] }}</td>
+                <td>{{ data[2]['product_quantity'] }}</td>
+                <td>{{ data[2]['product_image_name'] }}</td>
+                <td><a href="../static/images/{{data[2]['product_image_name']}}">Click here
+                    !! </a></td>
+                <td>{{ data[0]['category_name'] }}</td>
+                <td>{{ data[1]['subcategory_name'] }}</td>
+                <td><a href="/delete_product_category?product_id={{
+                        data[2]['product_id']
+                        }}">Delete</a
+                ></td>
+            </tr>
+            {% endfor %}
+        </table><br><br><br>
+        <a href="/">Back to Home</a>
+        <h4>!!  Welcome Again !!</h4>
+    </div>
+</body>
+</html>

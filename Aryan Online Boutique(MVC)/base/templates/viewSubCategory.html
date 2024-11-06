@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ViewSubCategory</title>
+    <style>
+        table, th, td {
+            border: 1px solid #2a8c2c;
+            border-collapse: collapse;
+            border-style: groove;
+            color: rgb(17, 17, 17);
+        }
+
+        .h1 {
+            font-family: Castellar;
+            color: #0c0c0c;
+        }
+
+        table.center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .h5 {
+            font-family: "Comic Sans MS";
+            color: #091228;
+        }
+
+        .a1 {
+            color: rgb(12, 12, 12);
+        }
+
+        .a2 {
+            color: rgb(9, 9, 9);
+        }
+
+        .h4 {
+            color: #0c0c0c;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <div style="text-align: center"><br>
+        <h1 class="h1">Aryan Online Boutique</h1> <br>
+        <h4 class="h4">Your Sub-Category below::</h4><br><br><br>
+        <table class="center">
+            <tr>
+                <th>Sub-Category Name</th>
+                <th>Sub-Category Description</th>
+                <th>Category Name</th>
+                <th>Action</th>
+            </tr>
+            {% for data in subcategory_vo_list %}
+
+                <tr>
+                    <td>{{ data[0]['subcategory_name'] }}</td>
+                    <td>{{ data[0]['subcategory_description'] }}</td>
+                    <td>{{ data[1]['category_name'] }}</td>
+                    <td>
+                        <a href="/delete_subcategory?subcategory_id={{ data[0]['subcategory_id'] }}"
+                           class="a1">Delete</a>
+                        <a href="/edit_subcategory?subcategory_id={{ data[0]['subcategory_id'] }}"
+                           class="a2">Update</a></td>
+                </tr>
+            {% endfor %}
+            <form>
+        </table>
+        <br><a href="/" style="font-family: Consolas;color: #1fb8cc">Back to
+            Home</a><br>
+        <h5 CLASS="h5">THANK YOU FOR VISITING</h5>
+    </div>
+</form>
+</body>
+</html>

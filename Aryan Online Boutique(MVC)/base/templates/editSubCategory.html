@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EditSubCategory</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            border-style: dashed;
+        }
+
+        table.center {
+            margin-left: auto;
+            margin-right: auto;
+            color: #0c0b0c;
+        }
+
+        .h1 {
+            font-family: "Comic Sans MS";
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<form action="/update_subcategory">
+    <div style="text-align: center;">
+        <h1 class="h1">Aryan Online Boutique</h1> <br>
+        <h5>Change your sub-category</h5>
+        category_name<select name="category_id">
+        {% for i in category_vo_list %}
+            <option name="category_id"
+                    value="{{ i["category_id"] }}">{{ i['category_name'] }}</option>
+        {% endfor %} </select><br><br>
+
+        {% for row in subcategory_vo_list %}
+            <input type="hidden" name="subcategory_id"
+                   value="{{ row['subcategory_id'] }}">
+            subcategory name=<input type="text" name="subcategory_name"
+                                    value="{{ row['subcategory_name'] }}"><br>
+            <br>
+            subcategory description=
+            <input type="textarea" name="subcategory_description"
+                   value="{{ row['subcategory_description'] }}"><br><br>
+            <input type="submit" value="submit">
+        {% endfor %}
+    </div>
+</form>
+</body>
+</html>
+
+
+

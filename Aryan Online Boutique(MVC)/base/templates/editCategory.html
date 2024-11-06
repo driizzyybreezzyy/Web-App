@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit category</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            border-style: dotted;
+        }
+
+        table.center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .h1 {
+            font-family: "Comic Sans MS";
+            color: black;
+        }
+
+        {#body{#}
+        {#    background-image: url("../static/images/red_lady.jpg");#}
+        {#    background-size: cover;#}
+    </style>
+</head>
+<body>
+<form action="/update_category">
+    <div style="text-align: center"><br>
+        <h1 class="h1">Aryan Online Boutique</h1> <br>
+        <h4>Change your details</h4> <br>
+        <table class="center">
+            <tr>
+                <th>category_id</th>
+                <th>category_name</th>
+                <th>category_description</th>
+            </tr>
+            {% for data1 in category_vo_list %}
+                <tr>
+                    <td><input type="hidden" name="category_id"
+                               value="{{ data1['category_id'] }}"></td>
+                    <td><input type="text" name="category_name"
+                               value="{{ data1['category_name'] }}"></td>
+                    <td><input type="text" name="category_description"
+                               value="{{ data1['category_description'] }}">
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+        <input type="submit" name="submit" value="Submit">
+    </div>
+</form>
+</body>
+</html>

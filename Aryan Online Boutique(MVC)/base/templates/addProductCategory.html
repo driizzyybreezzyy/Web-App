@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <style>
+        .h1 {
+            font-family: Gabriola;
+            font-size: 40px;
+        }
+    </style>
+    <script type="text/javascript">
+        function loadSubcategory() {
+            var categoryId = document.getElementById("category_id");
+            var subCategoryId = document.getElementById("subcategory_id");
+            subCategoryId.innerHTML = "";
+            var ajax = new XMLHttpRequest();
+            ajax.onreadystatechange = function () {
+                if (ajax.readyState === 4) {
+                    alert(ajax.responseText);
+                    var jsn = JSON.parse(ajax.responseText);
+                    var opt1 = document.createElement("option");
+                    opt1.text = "select subCategory";
+                    subCategoryId.options.add(opt1);
+                    for (var i = 0; i < jsn.length; i++) {
+                        console.log(jsn[i]);
+                        var opt = document.createElement("option");
+                        opt.text = jsn[i].subcategory_name;
+                        opt.value = jsn[i].subcategory_id;
+                        subCategoryId.options.add(opt);
+                    }
+                }
+            };
+            ajax.open("get", "/ajax_subcategory_product?category_id=" + categoryId.value, true);
+            ajax.send();
+        }
+    </script>
+
+</head>
+<body>
+<form action='/add_product' method="POST" enctype="multipart/form-data">
+    <div style="text-align: center">
+        <h1 class="h1">Aryan Online Boutique</h1>
+        <h4>:: Add Product-Category ::</h4><br>
+        <label for="category_name">Choose a CategoryName:</label>
+        <select name="category_id" id="category_id"
+                onchange="loadSubcategory()">
+            <option>Select Category</option>
+            {% for i in category_vo_list %}
+                <option value="{{ i["category_id"] }}">{{ i['category_name'] }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="subcategory_name">Choose a SubcategoryName:</label>
+        <label for="subcategory_id"></label><select name="subcategory_id"
+                                                    id="subcategory_id"></select>
+        <br><br>
+
+
+        <span>Product Name:</span>
+        <input type="text" name="product_name">
+        <br><br>
+        <span>Product Description:</span><br>
+        <textarea rows="4" cols="30"
+                  name="product_description"></textarea>
+        <br><br>
+        <span>Product Price:</span>
+        <input type="number" name="product_price">
+        <br><br>
+        <span>Product Quantity:</span>
+        <input type="number" name="product_quantity">
+        <br><br>
+
+        <label>File upload:</label>
+        <input type="file" name="productImage"
+               accept="image/png,image/jpeg"><br><br>
+        <input type="submit"><br><br>
+        <a href="/">Back to Home</a>
+    </div>
+</form>
+</body>
+</html>
+

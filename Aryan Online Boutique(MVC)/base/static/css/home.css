@@ -1,0 +1,46 @@
+
+body {
+    /*background-image: url("../images/magnificent_woman.jpg");*/
+    /*background-size: cover;*/
+}
+
+.h1 {
+    font-family: "Comic Sans MS";
+    color: black;
+}
+
+.h4 {
+    font-family: "Arial Black";
+    color: #461010;
+}
+
+.h5 {
+    font-family: Blackboard, msbm10, serif;
+    color: #7a1034;
+}
+
+.p1 {
+    text-align: justify-all;
+}
+
+.a1 {
+    color: #26283f;
+}
+
+.a2 {
+    color: #26283f;
+}
+
+.a3 {
+    color: #26283f;
+}
+
+.a4 {
+    color: #26283f;
+}
+
+.m1 {
+    color: #7a1034;
+    font-family: "Book Antiqua";
+}
+

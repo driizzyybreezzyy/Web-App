@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SubCategory</title>
+</head>
+<body>
+<form action="/add_subcategory" method="post">
+    <div style="text-align: center"><br>
+        <h1 style="font-family: 'Segoe Script'; color: black;">THE SIGNET BOUTIQUE</h1> <br><br>
+        <h4 style="color: rgb(49, 21, 21)">Sub-Catalog Details::</h4> <br>
+        <h5 style="color: #7f11b6">
+            <select name="subcategory_category_id">
+                {% for data in category_vo_list %}
+                    <option name="{{ data['category_id'] }}"
+                            value="{{ data['category_id'] }}">{{ data['category_name'] }}</option>
+                {% endfor %}
+            </select> <br>
+            <input type="hidden" name="category_id"><br><br>
+
+            <span>Subcategory Name --</span>
+            <input type="text" name="subcategory_name"><br><br>
+
+            <span>Subcategory Description --</span>
+            <input type="text" name="subcategory_description"> <br><br>
+
+            <input type="submit"> <br><br>
+            <a href='/'>Back to Home</a>
+        </h5>
+    </div>
+</form>
+</body>
+</html>

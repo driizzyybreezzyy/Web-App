@@ -1,0 +1,22 @@
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-style: dashed;
+}
+
+table.center {
+    margin-left: auto;
+    margin-right: auto;
+    color: #5b3a5b;
+}
+
+body {
+    background-image: url("../static/images/beautiful_african.jpg");
+    background-size: cover;
+}
+
+.h1 {
+    font-family: "Century Schoolbook";
+    color: #722f07;
+}

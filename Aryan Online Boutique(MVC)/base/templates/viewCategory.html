@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>viewCategory</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            border-style: dashed;
+        }
+
+        table.center {
+            margin-left: auto;
+            margin-right: auto;
+            color: #5b3a5b;
+        }
+
+        {#body{#}
+        {#    background-image: url("../static/images/beautiful_african.jpg   ");#}
+        {#    background-size: cover;#}
+        {
+        #}#}
+        .h1 {
+            font-family: "Century Schoolbook";
+            color: #722f07;
+        }
+
+        .h4 {
+            color: #9ebd33;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <div style="text-align: center"><br>
+        <h1 class="h1">Aryan Online Boutique</h1> <br>
+        <h4>Your details view below::</h4><br><br><br>
+        <table class="center">
+            <tr>
+                <th>Category_name</th>
+                <th>Category_description</th>
+                <th>Action</th>
+            </tr>
+            {% for data in category_vo_list %}
+                <tr>
+                    <td>{{ data['category_name'] }}</td>
+                    <td>{{ data['category_description'] }}</td>
+                    <td>
+                        <a href="/delete_category?category_id={{ data['category_id'] }}">Delete</a>
+                        <a href="/edit_category?category_id={{ data['category_id'] }}">Edit</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+        <a href='/'>Back to Home</a>
+        <h4 class="h4">Thanks for visiting !! </h4>
+    </div>
+</form>
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>addCategory</title>
+    <style>
+        {#body{#}
+        {#    background-image: url("../static/images/clothes_fashion.png");#}
+        {#    background-size: cover;#}
+        {
+        #}#}
+        .h1 {
+            font-family: 'Helvetica', sans-serif;
+            color: black;
+        }
+
+        .h5 {
+            font-family: Calibri;
+            color: #090809;
+        }
+    </style>
+</head>
+<body>
+<form action="/insert_category" method="post">
+    <div style="text-align: center;"><br>
+        <h1 class="h1">Aryan Online Boutique</h1> <br>
+        <h4>Fill your category Details::</h4> <br><br>
+        <h5 class="h5">
+            Category Name --<input type="text" name="category_name"
+                                   class="category_name"> <br><br>
+            Category Description -- <input type="text"
+                                           name="category_description"
+                                           class="category_description">
+            <br><br>
+            <input type="submit" name="submit" value="Submit"></h5>
+        <a href='/'>Back to Home</a>
+    </div>
+</form>
+</body>
+</html>
+
